@@ -2,7 +2,7 @@
 FROM python:3.9
 
 # 작업 디렉토리 설정
-WORKDIR /
+WORKDIR /usr/local/test-api
 
 # requirements.txt를 컨테이너에 복사
 COPY requirements.txt .
@@ -10,7 +10,7 @@ COPY requirements.txt .
 # 라이브러리 설치
 RUN pip install --no-cache-dir -r requirements.txt
 
-# 애플리케이션 파일 복사
+# 애플리케이션 파일 복사 (현재 디렉토리의 모든 소스 파일을 컨테이너의 작업 디렉토리에 복사)
 COPY . .
 
 # 컨테이너 시작 시 실행될 명령
