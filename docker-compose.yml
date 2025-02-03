@@ -1,0 +1,13 @@
+version: "3"
+services:
+  testapi:
+    image: test-api:lts
+    container_name: test-api
+    user: root
+    command: uvicorn main:app --host 0.0.0.0 --ports 8000 --reload
+    ports:
+      - "8000:8080"
+    # volumes:
+    #   - /var/run/docker.sock:/var/run/docker.sock
+    #   - /volume1/docker/jenkins:/var/jenkins_home
+    # restart: always
